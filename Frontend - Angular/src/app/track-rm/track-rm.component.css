@@ -1,0 +1,31 @@
+.trackRM {
+    font-size: 60px;
+    font-style: italic;
+    font-family: sans-serif;
+  }
+
+  .form-group1 {
+    font-size: 20px;
+    height: auto;
+    width: 35%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+
+
+.searchID {
+    font-size: 30px;
+}
+
+
+.rmData {
+    padding: 20px;
+}
+
+.trRM {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    height: auto;
+}

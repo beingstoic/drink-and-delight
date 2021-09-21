@@ -1,0 +1,45 @@
+<div class="container w-50 p-3">
+    <mat-card  class="example-card">
+    
+            <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Order Details:</mat-card-title>
+            </h1>
+        
+        <mat-card-content>
+         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class=" form-group form-row">
+                <label class="st-label col-md-3 col-form-label" for="orderId" >Order Id</label>
+                 <input type = "number" class="form-control col-md-5" id="orderId" name="orderId" placeholder = "Order Id"
+                  formControlName="orderId" [ngClass]="{'is-invalid':(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid}"> 
+                  <span class="invalid-feedback " *ngIf="(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid">
+                    Order Id is Required!!
+                  </span>    
+               </div>
+             <div class="wrapper">  
+                <button mat-raised-button type="submit" class="btn btn-primary col-md-3" >Search</button>
+            </div>
+           
+         </form> 
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="container  w-50  p-3" *ngIf="fail">
+  <mat-card  class="fail" >
+    This Order Id Does Not Exist
+  </mat-card>
+</div>
+<div class="container" *ngIf="success">
+  <div style="font-weight:bolder;font-size: large;color: midnightblue;"> Order Details</div>
+  <hr style="width: 30%; text-align: center;margin-left:0">
+<pre style="font-size: medium;">
+Order Id:       {{odrDetail.orderId}}               
+Order Date:     {{odrDetail.dateOfOrder}}
+Distributor:    {{odrDetail.distributorId}} 
+Warehouse Id:   {{odrDetail.warehouseId}}     
+Product Name:   {{odrDetail.productName}} 
+Quantity:       {{odrDetail.quantity}}
+Unit Price:     {{odrDetail.pricePerUnit}}
+Bill Amount:    {{odrDetail.totalPrice}}
+Delivery Date:  {{odrDetail.dateOfDelivery}}
+
+</pre>
+</div>

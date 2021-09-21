@@ -1,0 +1,39 @@
+<div class="container w-50 p-3">
+    <mat-card  class="example-card">
+    
+            <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Distributor Details</mat-card-title>
+            </h1>
+        
+        <mat-card-content>
+         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group form-row">
+                <label for="distSelect" class="st-label col-md-3 col-form-label">Distributor Id:</label>
+                    <select class="form-control col-md-5"  id="distSelect" formControlName= "selectedId" [ngClass]="{'is-invalid':(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid}" >
+                      <option value="" disabled>Select Distributor</option>
+                      <option [value]="item" *ngFor="let item of distributorIds">{{item}}</option>
+                    </select> 
+                    <span class="invalid-feedback " *ngIf="(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid">
+                        Order Id is Required!!
+                      </span> 
+             </div>
+             <div class="wrapper">  
+                <button mat-raised-button class="btn btn-primary col-md-3" type="submit">Search</button>
+            </div>
+           
+         </form> 
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="container" *ngIf="success">
+ <div style="font-weight:bolder;font-size: large;color: midnightblue;"> Distributor Details</div>
+ <hr style="width: 30%; text-align: center;margin-left:0">
+<pre style="font-size: medium;">
+Id:       {{distributorDetails.distributorId}}   
+Name:     {{distributorDetails.distributorName}} 
+Address:  {{distributorDetails.location}}
+Contact:  {{distributorDetails.phoneNumber}}
+Email:    {{distributorDetails.email}}
+
+</pre>
+</div>

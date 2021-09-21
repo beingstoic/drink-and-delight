@@ -1,0 +1,110 @@
+
+<div class="container w-50  p-3  " style="height: 75%;" id="form1"  >
+  <mat-card  class="example-card">
+  <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"><mat-card-title> Place Product Order</mat-card-title>
+  </h1>
+  <mat-card-content>
+  <form class=""[formGroup]="productOrderForm" (ngSubmit)="onSubmit()">
+  
+  <div class=" form-group form-row ">     
+    <label class="st-label col-md-3 col-form-label " for="orderDate" >Date Of Order</label>
+     <input type = "date" class="form-control col-md-5" id="orderDate" placeholder = "Order Date" formControlName="dateOfOrder" readonly >
+         
+  </div>
+  
+  <div class=" form-group form-row">
+   <label class="st-label col-md-3 col-form-label" for="orderId" >Order Id</label>
+    <input type = "number" class="form-control col-md-5" id="orderId" placeholder = "Order Id" formControlName="orderId" [ngClass]="{'is-invalid':(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid}" >
+    
+    <span class="invalid-feedback " *ngIf="(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid">
+      Order Id is Required!!
+    </span>     
+  </div>
+  
+ <div class="form-group form-row">
+       <label for="exampleSelect2" class="st-label col-md-3 col-form-label">Distributor:</label>
+        <select class="form-control col-md-5" id="exampleSelect2" formControlName="distributorId" [ngClass]="{'is-invalid':(f.distributorId.touched && f.distributorId.dirty || submitted) && f.distributorId.invalid}" >
+          <option value="" disabled>Select Distributor</option>
+          <option [value]="item.distributorId" *ngFor="let item of distributors">{{item.distributorId}}-{{item.distributorName}}</option>
+        </select> 
+        <span class="invalid-feedback " *ngIf="(f.distributorId.touched && f.distributorId.dirty || submitted) && f.distributorId.invalid">
+          Distributor Id is Required!!
+        </span>
+ </div>
+
+  <div class="form-group form-row">
+    <label for="exampleSelect1" class="st-label col-md-3 col-form-label">Product Name:</label>
+    <select class="form-control col-md-5" id="exampleSelect1" formControlName="productName" #p (change)="updateUnitPrice(p.value)"[ngClass]="{'is-invalid':(f.productName.touched && f.productName.dirty || submitted) && f.productName.invalid}" >
+      <option value="" disabled>Select Product</option>
+      <option *ngFor="let item of products" >{{item.productName}}</option>
+    </select> 
+    <span class="invalid-feedback " *ngIf="(f.productName.touched && f.productName.dirty || submitted) && f.productName.invalid">
+      *Select Product Name!!
+    </span> 
+  </div>
+ 
+
+  <div class=" form-group form-row">    
+    <label class="st-label col-md-3 col-form-label" for="ppu" >Price Per Unit</label>
+    <input type = "number" class="form-control col-md-5" id="ppu" placeholder = "Unit Price" formControlName="pricePerUnit" [ngClass]="{'is-invalid':(f.pricePerUnit.touched && f.pricePerUnit.dirty || submitted) && f.pricePerUnit.invalid}"  >
+    <span class="invalid-feedback " *ngIf="(f.pricePerUnit.touched && f.pricePerUnit.dirty || submitted) && f.pricePerUnit.invalid">
+      *Unit price is required!!
+    </span>     
+  </div>
+
+  <div class=" form-group form-row">   
+      <label class="st-label col-md-3 col-form-label" for="quantity" >Quantity:</label>
+      <input type = "number"  class="form-control col-md-5" id="quantity" placeholder = "Quantity" formControlName="quantityValue" (input)="updateBillAmount()" [ngClass]="{'is-invalid':(f.quantityValue.touched && f.quantityValue.dirty || submitted) && f.quantityValue.invalid}" >
+      <span class="invalid-feedback " *ngIf="(f.quantityValue.touched && f.quantityValue.dirty || submitted) && f.quantityValue.invalid">
+        *Quantity is required!!
+      </span>
+  </div>
+
+  <div class="form-group form-row">
+    <label for="exampleSelect3" class="st-label col-md-3 col-form-label">Warehouse</label>
+    <select class="form-control col-md-5" id="exampleSelect3"       formControlName="warehouseId" [ngClass]="{'is-invalid':(f.warehouseId.touched && f.warehouseId.dirty || submitted) && f.warehouseId.invalid}">
+      <option value="" disabled > Select Warehouse</option>
+      <option *ngFor="let item of warehouses" [value]="item.warehouseId">{{item.warehouseName}}</option>
+    </select> 
+    <span class="invalid-feedback " *ngIf="(f.warehouseId.touched && f.warehouseId.dirty || submitted) && f.warehouseId.invalid">
+      *Warehouse Id is required!!
+    </span> 
+  </div>
+
+  <div class=" form-group form-row">     
+    <label class="st-label col-md-3 col-form-label" for="totalPrice" >Bill Amount</label>
+     <input type = "number" class="form-control col-md-5" id="totalPrice" placeholder = "Bill Amount" formControlName="totalPrice" [ngClass]="{'is-invalid':(f.totalPrice.touched && f.totalPrice.dirty || submitted) && f.totalPrice.invalid}"> 
+     <span class="invalid-feedback " *ngIf="(f.totalPrice.touched && f.totalPrice.dirty || submitted) && f.totalPrice.invalid">
+      *Do not change bill amount!!
+    </span>   
+  </div>
+
+  
+  <div class=" form-group form-row">     
+    <label class="st-label col-md-3 col-form-label" for="deliveryDate" > Delivery Date</label>
+     <input type = "date" #dod class="form-control col-md-5" id="deliveryDate" placeholder = "Delivery Date" formControlName="dateOfDelivery" (input)="checkDate(dod.value)" [ngClass]="{'is-invalid':(f.dateOfDelivery.touched && f.dateOfDelivery.dirty || submitted) && f.dateOfDelivery.invalid}" >  
+     <span class="invalid-feedback " *ngIf="(f.dateOfDelivery.touched && f.dateOfDelivery.dirty || submitted) && f.dateOfDelivery.invalid">
+      *Delivery date is required !!
+    </span>   
+  </div>
+  <div class="wrapper">
+  <input type = "submit" value = "Send" class="btn btn-primary col-md-3 waves-effect " >  
+  </div>
+  
+     </form>
+    </mat-card-content>
+    
+  </mat-card>
+</div>
+<div class="container  w-50  p-3 " *ngIf="fail">
+  <mat-card  class="fail" >
+    This Order Id Already Exists
+  </mat-card>
+</div>
+<div class="container  w-50  p-3" *ngIf="success">
+  <mat-card  class="success" >
+    Order added successfully
+  </mat-card>
+</div>
+
+

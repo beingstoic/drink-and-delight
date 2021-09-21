@@ -1,0 +1,163 @@
+<div class="container w-50 p-3">
+    <!--<div class="jumbotron">
+        <div class="trackProduct">Track Product Order</div>
+    </div>-->
+
+
+    <mat-card  class="example-card">
+        <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"><mat-card-title>Track Product Order</mat-card-title>
+        </h1>
+        <mat-card-content>
+            <div class=" form-group form-row">
+                <label class="st-label col-md-4 col-form-label">Enter Product ID</label>
+                <input  class="form-control col-md-5" type="number" name="orderId" [(ngModel)]="orderId">
+            </div>
+            <div class="wrapper">
+                <button mat-raised-button class="btn btn-primary col-md-3" type="submit" (click)="findById()">Search</button> 
+            </div>
+            <br>
+            <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Product Id Not Found</div>
+        
+        </mat-card-content>
+    </mat-card>
+
+
+    <div class="form-group1">
+        <label class="searchID">Enter Product ID</label>
+        <input type="number" name="orderId" [(ngModel)]="orderId" class="form-control">
+        <p>Look at me! {{orderId}}</p>
+        <button class="btn btn-success" type="submit" (click)="findById()">Search</button>
+        <!-- <button mat-raised-button color="primary" type="submit" (click)="findById()">Search</button> -->
+        <!-- <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Data Not Found</div> -->
+    </div>
+    <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Product Id Not Found</div>
+
+    <!-- <div class="prData"> -->
+    <div class="trProduct" *ngIf="idExist">
+
+        <div class="form-group">
+            <label class="oid">Order ID</label>
+            <input type="text" readonly value="{{model.orderId}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Product Name</label>
+            <input type="text" readonly value="{{model.productName}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Supplier Id</label>
+            <input type="text" readonly value="{{model.distributorId}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Quantity Value</label>
+            <input type="text" readonly value="{{model.quantityValue}}" class="form-control">
+        </div>
+
+        <!-- <div class="form-group">
+            <label class="oid">Quantity Unit</label>
+            <input type="text" readonly value="{{model.quantityUnit}}" class="form-control">
+        </div> -->
+
+        <div class="form-group">
+            <label class="oid">Date of Order</label>
+            <input type="text" readonly value="{{model.dateOfOrder}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Date of Delivery</label>
+            <input type="text" readonly value="{{model.dateOfDelivery}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Price per Unit</label>
+            <input type="text" readonly value="{{model.pricePerUnit}}" class="form-control">
+        </div>
+
+    </div>
+
+    <div class="trProduct" *ngIf="idExist">
+
+        <div class="form-group">
+            <label class="oid">Total Price</label>
+            <input type="text" readonly value="{{model.totalPrice}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Delievery Status</label>
+            <input type="text" readonly value="{{model.deliveryStatus}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Warehouse Id</label>
+            <input type="text" readonly value="{{model.warehouseId}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Manufacturing Date</label>
+            <input type="text" readonly value="{{model.manufacturingDate}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Expiry Date</label>
+            <input type="text" readonly value="{{model.expiryDate}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Quality Analysis</label>
+            <input type="text" readonly value="{{model.qualityCheck}}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="oid">Exit Date</label>
+            <input type="text" readonly value="{{model.exitDate}}" class="form-control">
+        </div>
+
+    </div>
+
+<!-- </div> -->
+
+
+    <!-- <table class="table table-sum" style="border: 1px;">
+      <thead class="table-primary">
+          <th>Order Id</th>
+          <th>Name</th>
+          <th>Supplier Id</th>
+          <th>Quantity Value</th>
+          <th>Quantity Unit</th>
+          <th>Date of Order</th>
+          <th>Date of Delivery</th>
+          <th>Price per Unit</th>
+          <th>Total Price</th>
+          <th>Delievery Status</th>
+          <th>Warehouse Id</th>
+          <th>Manufacturing Date</th>
+          <th>Expiry Date</th>
+          <th>Quality Analysis</th>
+          <th>Exit Date</th>
+      </thead>
+      <ng-container>
+          <tr class="table-dark">
+              <td>{{model.orderId}}</td>
+              <td>{{model.name}}</td>
+              <td>{{model.supplierId}}</td>
+              <td>{{model.quantityValue}}</td>
+              <td>{{model.quantityUnit}}</td>
+              <td>{{model.dateOfOrder}}</td>
+              <td>{{model.dateOfDelivery}}</td>
+              <td>{{model.pricePerUnit}}</td>
+              <td>{{model.totalPrice}}</td>
+              <td>{{model.deliveryStatus}}</td>
+              <td>{{model.warehouseId}}</td>
+              <td>{{model.manufacturingDate}}</td>
+              <td>{{model.expiryDate}}</td>
+              <td>{{model.qualityCheck}}</td>
+              <td>{{model.exitDate}}</td>
+          </tr>
+    
+      </ng-container>
+    
+    </table> -->
+
+</div>

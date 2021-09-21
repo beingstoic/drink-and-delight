@@ -1,0 +1,64 @@
+.main-container {
+    margin-top: 80px;
+    width: inherit;
+    position: absolute;
+    /* z-index: -1; */
+    left: 0;
+    right: 0;
+    transition: 0.5s;
+}
+
+.toolbar-header {
+    float: top;
+    position: fixed;
+    top: 0;
+    height: 80px;
+}
+.side-container {
+    width: 250px;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    width: 95%;
+    padding: 10px 10px 10px 10px;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+.icon-padding {
+    padding: 0px 0px 0px 0px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.side-button {
+    padding: 5px;
+    font-size: large;
+    margin-top: 2vh;
+}
+
+.link-class {
+    text-decoration: none;
+    height: 30px;
+    width: 30px;
+    color: inherit;
+    padding: 10px;
+    font-size: large;
+}
+.side-option {
+    padding: 5px 5px 5px 10px;
+    margin: 5px 5px 5px 40px;
+}
+
+.side-close {
+    padding: 5px 10px 5px 5px;
+    margin: 5px 5px 5px 10px;
+}

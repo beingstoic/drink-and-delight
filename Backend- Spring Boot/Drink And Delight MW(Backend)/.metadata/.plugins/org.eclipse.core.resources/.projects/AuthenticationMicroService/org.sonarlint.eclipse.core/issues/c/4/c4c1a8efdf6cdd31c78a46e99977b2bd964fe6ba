@@ -1,0 +1,23 @@
+
+v	java:S112C"FDefine and throw a dedicated exception instead of using a generic one.(Œœ¤ºüÿÿÿÿH«RMAJORZ
+CODE_SMELL
+v	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(êÆÖËùÿÿÿÿH¬RMAJORZ
+CODE_SMELL
+q	java:S112M"FDefine and throw a dedicated exception instead of using a generic one.(ÈçïÕH­RMAJORZ
+CODE_SMELL
+q	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(Â††‘H®RMAJORZ
+CODE_SMELL
+U
+java:S1452("&Remove usage of generic wildcard type.(Á¶èÇH¯RCRITICALZ
+CODE_SMELL
+r
+java:S4684("@Replace this persistent entity with a simple POJO or DTO object.(Á¶èÇH°RCRITICALZVULNERABILITY
+Z
+java:S14526"&Remove usage of generic wildcard type.(¤ƒ¹€úÿÿÿÿH±RCRITICALZ
+CODE_SMELL
+Z
+java:S1452C"&Remove usage of generic wildcard type.(Œœ¤ºüÿÿÿÿH²RCRITICALZ
+CODE_SMELL
+
+java:S1130C"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Œœ¤ºüÿÿÿÿH³RMINORZ
+CODE_SMELL

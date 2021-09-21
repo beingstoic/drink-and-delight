@@ -1,0 +1,77 @@
+<div class="container w-50 p-3">
+  <mat-card class="example-card">
+    <h1 class="h4 mb-4 block-title text-weight-bold text-uppercase text-center">
+      <mat-card-title>Distributor Details</mat-card-title>
+    </h1>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group form-row">
+          <label for="supSelect" class="st-label col-md-3 col-form-label"
+            >Supplier:</label
+          >
+          <select
+            class="form-control col-md-5"
+            name="selectedId"
+            id="selectedId"
+            formControlName="selectedId"
+            [ngClass]="{
+              'is-invalid':
+                ((f.selectedId.touched && f.selectedId.dirty) || submitted) &&
+                f.selectedId.invalid
+            }"
+          >
+            <option value="" disabled>Select Supplier</option>
+            <option [value]="item.supplierId" *ngFor="let item of supplierIds">
+              {{ item.supplierId }}-{{ item.supplierName }}
+            </option>
+          </select>
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              ((f.selectedId.touched && f.selectedId.dirty) || submitted) &&
+              f.selectedId.invalid
+            "
+          >
+            Supplier Id is Required!!
+          </span>
+        </div>
+        <div class="wrapper">
+          <button
+            mat-raised-button
+            class="btn btn-primary col-md-3"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="row" *ngIf="success">
+  <div class="col-md-6 text-center">
+    <table
+      style="
+        border: 1px solid black;
+        text-align: center;
+        font-size: 20px;
+        padding: 10px;
+        width: 100%;
+      "
+    >
+      <tr>
+        <th>Supplier Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+      </tr>
+      <tr>
+        <td>{{ SupplierrDetails.supplierId }}</td>
+        <td>{{ SupplierrDetails.supplierName }}</td>
+        <td>{{ SupplierrDetails.email }}</td>
+        <td>{{ SupplierrDetails.phoneNumber }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

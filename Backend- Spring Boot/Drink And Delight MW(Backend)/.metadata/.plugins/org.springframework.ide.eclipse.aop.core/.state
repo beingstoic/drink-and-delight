@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="AuthenticationMicroService"/>
+<aop-project name="StockManagementMicroService"/>
+<aop-project name="DiscoveryMicroService"/>
+<aop-project name="GatewayMicroService"/>
+<aop-project name="ProductOrderManagementMicroService"/>
+<aop-project name="RawMaterialOrderManagementService"/>
+</aop-reference-model>

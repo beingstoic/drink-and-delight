@@ -1,0 +1,72 @@
+<div class="toolbar"  >
+    <img
+      width="40"
+      alt="Drink And Delight Logo"
+      src="assets/images/champagne.png"
+    />
+    <span>Drink And Delight</span>
+    <div class="spacer"></div>
+    
+</div>
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="signupValidations" (ngSubmit)="submitForm()">
+            <img class="logo " class="img-fluid " style="margin-left: auto; margin-right: auto;" width="40" src="assets/images/champagne.png"><br>
+            <h1 style="text-align:center; ">
+                <b>SIGNUP HERE </b>
+            </h1>
+            <div class="form-group form-row">
+                <input type = "text" class="form-control " placeholder="Username" formControlName="username"  [ngClass]="{'is-invalid':(f.username.touched && f.username.dirty)&&signupValidations.get( 'username').invalid}">
+                <span class="invalid-feedback " *ngIf="f.username.hasError('required') &&(f.username.touched && f.username.dirty)">Username is Required!</span>
+                <span class="invalid-feedback " *ngIf="f.username.hasError('minlength')&&(f.username.touched && f.username.dirty)">Username should be atleast 8 characters long!</span>
+                <span class="invalid-feedback " *ngIf="f.username.hasError('maxlength')&&(f.username.touched && f.username.dirty)">Username can be at max 20 characters long!</span>
+            </div>
+            
+            <div class="form-group form-row">
+                <input autocomplete="off" type="text"  class="form-control " placeholder=" Email " type="email" formControlName="emailId">
+                <span class="invalid-feedback" *ngIf="!email.valid && email.touched && email.dirty">{{getEmailError()}}</span>
+            </div>
+            
+
+            <div class="form-group form-row">
+                <input type = "password" class="form-control " id="password" name="password"  placeholder = "Password "
+                formControlName="password" [ngClass]="{'is-invalid':(f.password.touched && f.password.dirty)&& f.password.invalid}"> 
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'required') ">
+                    Password is required!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'minlength') ">
+                    Password should be atleast 6 characters long!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'maxlength')">
+                    Password can be at max 16 characters long!
+                </span>
+            </div>
+
+            <div class="form-group form-row" *ngIf="f.password.valid">
+                <input type = "password" class="form-control "   placeholder = "Confirm Password "
+                formControlName="confirmPassword" [ngClass]="{'is-invalid':(f.confirmPassword.touched && f.password.dirty)&& f.confirmPassword.invalid}"> 
+                <span class="invalid-feedback" *ngIf="f.confirmPassword.pristine || f.confirmPassword.errors?.MatchPassword">Password does not match
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.confirmPassword.touched && f.confirmPassword.dirty)&&f.confirmPassword.hasError( 'required') ">
+                    Password is required!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.confirmPassword.touched && f.confirmPassword.dirty)&&f.confirmPassword.hasError( 'minlength') ">
+                    Password should be atleast 6 characters long!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.confirmPassword.touched && f.confirmPassword.dirty)&&f.confirmPassword.hasError( 'maxlength')">
+                    Password can be at max 16 characters long!
+                </span>
+            </div>
+            <div class="form-group form-row" style="margin-left:10px; margin-bottom: auto;">
+                Gender: <pre>  </pre>
+             
+                 <label class="radio-inline"><input type="radio" name="gender" formControlName="gender" value="Male">Male</label><pre>  </pre>
+                 <label class="radio-inline"><input type="radio" name="gender" formControlName="gender" value="Female">Female</label>
+             
+             </div>
+
+            <button mat-raised-button color="primary" class="btn btn-primary" type="submit" [disabled]="!signupValidations ">SIGN UP</button><br>
+            <button mat-raised-button color="primary" class="btn btn-primary" type="button" (click)="clickExisting() ">Existing User? LOG IN</button><br>
+        </form>
+    </mat-card>
+</div>

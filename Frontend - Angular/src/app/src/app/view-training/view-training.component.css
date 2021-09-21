@@ -1,0 +1,12 @@
+.example-container {
+    height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+}

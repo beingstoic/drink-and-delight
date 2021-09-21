@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="UpProductStock">Update Product Stock</div>
+
+    </div>
+
+        <div class="btn">
+        <button class="btn btn-primary" (click)="productDetails()" >
+            Update Product Details
+        </button>
+        </div>
+
+        <div class="btn">       
+        <button class="btn btn-primary" (click)="exitDate()" >
+           Set Exit Date
+        </button>
+        </div>
+       
+
+        <div class="form-group" *ngIf="UpProductDetails" >
+            <label class="SearchID">Enter Product ID</label>
+            <input type="number" name="orderId" [(ngModel)]="orderId" class="form-control">
+            <p>Look at me! {{orderId}}</p>
+            <button class="btn btn-success" type="submit" (click)="findById()">Search</button>
+            <!-- <button mat-raised-button color="primary" type="submit" (click)="findById()">Search</button> -->
+            <!-- <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Data Not Found</div> -->
+
+
+
+        </div>
+        <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Product Id Not Found</div>
+
+
+        <div class="form-group" *ngIf="dataFound && IdExist1">
+            <label class="mDate">Set Manufacturing Date</label>
+            <input type="date" name="manufacturingDate" [(ngModel)]="model.manufacturingDate" class="form-control">
+            <!-- <input type="text" name="MfDate" [(ngModel)]="MfDate" class="form-control"> -->
+            <p>Look at me! {{model.manufacturingDate}}</p>
+            <label class="eDate">Set Expiry Date</label>
+            <input type="date" name="expiryDate" [(ngModel)]="model.expiryDate" class="form-control">
+            <!-- <input type="text" name="ExpDate" [(ngModel)]="ExpDate" class="form-control"> -->
+            <p>Look at me! {{model.expiryDate}}</p>
+            <label class="qAna">Set Quality Analysis</label>
+            <input type="text" name="qualityCheck" [(ngModel)]="model.qualityCheck" class="form-control">
+            <p>Look at me! {{model.qualityCheck}}</p>
+            <button class="btn btn-success" type="submit" (click)="submitProductDetails()" >Submit</button>
+        </div>
+        <div class="alert alert-success" *ngIf="detailSubmitButton && success">Data submitted {{resultModel}}</div>
+
+        <div class="form-group" *ngIf="UpExitDate" >
+            <label class="SearchID">Enter Product ID</label>
+            <input type="number" name="orderId" [(ngModel)]="model.orderId"  class="form-control">
+            <p>Look at me! {{model.orderId}}</p>
+            <!-- <button class="btn btn-success" type="submit" >Search</button> -->
+            <!-- <button mat-raised-button color="primary" type="submit" (click)="findById()">Search</button> -->
+            <!-- <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Data Not Found</div> -->
+
+        <!-- </div> -->
+
+        <!-- <div class="form-group" *ngIf="IdExist"> -->
+            <label class="eDate">Set Exit Date</label>
+            <input type="date" name="exitDate" [(ngModel)]="model.exitDate" class="form-control">
+            <p>Look at me! {{model.exitDate}}</p>
+            <!-- <input type="text" name="PrDate" [(ngModel)]="PrDate" class="form-control"> -->
+            <!-- <p>Look at me! {{model.exitDate}}</p> -->
+            <button class="btn btn-success" type="submit" (click)="setExitDate()" >Set</button>
+        </div>
+        <div class="alert alert-success" *ngIf="DateUpdated && success">Exit Date Updated {{resultModel}}</div>
+
+        
+</div>

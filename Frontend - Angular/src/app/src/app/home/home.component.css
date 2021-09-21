@@ -1,0 +1,15 @@
+.btn
+{
+    background-color: #011f4b;
+    border: #011f4b;
+    
+}
+.mat-card{
+    color:firebrick;
+    background-color: whitesmoke;
+    border-radius: 7px;
+}
+.mat-card-subtitle
+{
+    color: blue;
+}

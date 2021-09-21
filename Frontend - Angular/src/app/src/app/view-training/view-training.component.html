@@ -1,0 +1,64 @@
+<mat-toolbar color="primary" class="toolbar-header">
+    <span>Trainings</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="refresh()" matTooltip="Refresh this table">
+      <mat-icon>refresh</mat-icon>
+    </button>
+</mat-toolbar>
+  
+<div class="container mat-elevation-z8">
+
+    <button mat-icon-button color="primary" (click)="addNew()" matTooltip="Add a training">
+        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+      </button>
+  
+    <mat-table class="mat-cell" [dataSource]="dataSource">
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Training Id</mat-header-cell>
+        <mat-cell *matCellDef="let trainings" >{{trainings.id}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="trainingName">
+        <mat-header-cell *matHeaderCellDef>Training Name</mat-header-cell>
+        <mat-cell *matCellDef="let trainings"> {{trainings.trainingName}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="facultyName">
+        <mat-header-cell *matHeaderCellDef>Faculty Name</mat-header-cell>
+        <mat-cell *matCellDef="let trainings"> {{trainings.faculty.facultyName}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="courseName">
+        <mat-header-cell *matHeaderCellDef>Course Name</mat-header-cell>
+        <mat-cell *matCellDef="let trainings"> {{trainings.course.courseName}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="startDate">
+        <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
+        <mat-cell *matCellDef="let trainings"> {{trainings.startDate}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="endDate">
+        <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
+        <mat-cell *matCellDef="let trainings"> {{trainings.endDate}}</mat-cell>
+      </ng-container>
+  
+      <!-- actions --> 
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let trainings">
+          <button mat-icon-button (click)="editItem(trainings.id)" matTooltip="Edit this training">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteItem(trainings.id)" matTooltip="Remove this training">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

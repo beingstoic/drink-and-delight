@@ -1,0 +1,51 @@
+.trackProduct {
+    font-size: 60px;
+    font-style: italic;
+    font-family: sans-serif;
+  }
+
+  .form-group1 {
+    font-size: 20px;
+    height: auto;
+    width: 35%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+
+
+.searchID {
+    font-size: medium;
+}
+
+
+.prData {
+    padding: 20px;
+}
+
+.trProduct {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    height: auto;
+}
+
+.mat-card{
+    color:#011f4b;
+    background-color: whitesmoke;
+    border-radius: 7px;
+}
+.wrapper {
+    text-align: center;
+  }
+.btn
+  {
+      background-color: #011f4b;
+      border: #011f4b;
+      
+  }
+  label.st-label
+{
+  font-weight: strong;
+  font-size: medium;
+}

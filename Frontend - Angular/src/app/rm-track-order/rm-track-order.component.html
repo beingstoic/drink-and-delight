@@ -1,0 +1,76 @@
+<div class="container w-50 p-3">
+    <mat-card  class="example-card">
+    
+            <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Track Raw Material</mat-card-title>
+            </h1>
+        
+        <mat-card-content>
+         <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+            <div class="form-group form-row">
+            <label for="supSelect" class="st-label col-md-3 col-form-label">Supplier:</label>
+                <select class="form-control col-md-5" name="selectedId" id="selectedId" formControlName="selectedId" [ngClass]="{'is-invalid':(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid}">
+                  <option value="" disabled>Select Supplier</option>
+                  <option [value]="item.supplierId" *ngFor="let item of supplierIds">{{item.supplierId}}-{{item.supplierName}}</option>
+                </select>  
+                <span class="invalid-feedback " *ngIf="(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid">
+                  Supplier Id is Required!!
+                </span> 
+            </div>
+         
+             <div class="form-group form-row">
+              <label for="status" class="st-label col-md-3 col-form-label">Status</label>
+              <select class="form-control col-md-5" id="status" formControlName="status" [ngClass]="{'is-invalid':(f.status.touched && f.status.dirty || submitted) && f.status.invalid}" >
+                <option value="" disabled>Select Status</option>
+                <option *ngFor="let item of statuses" [value]="item" >{{item}}</option>
+              </select>
+              <span class="invalid-feedback " *ngIf="(f.status.touched && f.status.dirty || submitted) && f.status.invalid">
+                 Order Status is Required!!
+               </span>   
+            </div>
+
+             <!----<div class=" form-group form-row">     
+                <label class="st-label col-md-3 col-form-label" for="SDate" > Start Date</label>
+                 <input type = "date"  class="form-control col-md-5" id="SDate" placeholder = "Start Date" name="SDate" [(ngModel)]="startDate"  >    
+              </div>
+
+             <div class=" form-group form-row">     
+                <label class="st-label col-md-3 col-form-label" for="SDate" > End Date</label>
+                 <input type = "date"  class="form-control col-md-5" id="EDate" placeholder = "End Date" name="EDate" [(ngModel)]="endDate" >    
+             </div> -->
+             <div class=" form-group form-row">     
+              <label class="st-label col-md-3 col-form-label" for="startDate" > Start Date</label>
+               <input type = "date"  class="form-control col-md-5" id="startDate" formControlName="startDate"  >    
+            </div>
+            <div class=" form-group form-row">     
+              <label class="st-label col-md-3 col-form-label" for="endDate" > End Date</label>
+               <input type = "date"  class="form-control col-md-5" id="endDate" formControlName="endDate" >    
+            </div>
+              <div class="wrapper">  
+                <button mat-raised-button class="btn btn-primary col-md-3" (click)="onSubmit()">Search</button>
+              </div>
+           
+         </form> 
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="row" *ngIf="success">
+  <div class="col-md-6">
+      <table  style="border: 1px solid rgba(44, 42, 167, 0.178); text-align: center; font-size: 20px; padding: 10px; width: 100%;">
+          <tr >
+              <th>Order Id</th>
+              <th>Supplier Id</th>
+              <th>Delivery Status</th>
+              <th>Date of Delivery</th>
+          </tr>
+          <tr *ngFor = "let order of orderDetails">
+              <td>{{order.orderId}}</td>
+              <td>{{order.supplierId}}</td>
+              <td>{{order.deliveryStatus}}</td>
+              <td>{{order.delDate}}</td>
+          </tr>
+      </table>
+  </div>
+</div>
+<div class="container" *ngIf="noRecordsFound">No Records Found</div>
+
+

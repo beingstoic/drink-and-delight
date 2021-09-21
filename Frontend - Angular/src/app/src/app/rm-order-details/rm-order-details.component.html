@@ -1,0 +1,28 @@
+<div> 
+    <div class="container w-50 p-3">
+      <mat-card  class="example-card">
+      
+              <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Order Details:</mat-card-title>
+              </h1>
+          
+          <mat-card-content>
+           <form >
+              <div class=" form-group form-row">
+                  <label class="st-label col-md-3 col-form-label" for="orderId" >Order Id</label>
+                   <input type = "number" class="form-control col-md-5" id="orderId" name="orderId" placeholder = "Order Id"
+                    [(ngModel)]="orderId" >     
+                 </div>
+               <div class="wrapper">  
+                  <button mat-raised-button class="btn btn-primary col-md-3" (click)="onSubmit()">Search</button>
+              </div>
+           </form> 
+          </mat-card-content>
+      </mat-card>
+      <div *ngIf = flags>
+        <h4>orderId : {{orderDetails.orderId}}</h4>
+        <h4>Raw Material Name : {{orderDetails.rawMaterialName}}</h4>
+        <h4><h4>Date of Order : {{orderDetails.dateOfOrder}}</h4></h4>
+        <h4>Date of Delivery : {{orderDetails.delDate}}</h4>
+        <h4>Delivery Status : {{orderDetails.deliveryStatus}}</h4>
+    </div>
+  </div>

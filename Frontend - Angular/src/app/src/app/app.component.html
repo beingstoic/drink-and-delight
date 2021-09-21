@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="toolbar-header">
+  <mat-toolbar-row>
+    <div>
+      <button mat-icon-button (click)="navigateToWebsite()">
+        <span
+          ><img
+            style="margin-top: 30px; height: 60px; width: 300px;"
+            src="../../assets/images/capgemini-logo.png"
+        /></span>
+      </button>
+    </div>
+    <span class="toolbar-spacer"></span>
+    <div>
+      <a style="text-decoration: none; color: inherit;" href="/">
+        <span style="padding: 5px 5px 5px 5px;">
+          <mat-icon class="icon-padding">assignment</mat-icon>
+          Feedback Management System
+        </span>
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="main-container">
+  <mat-sidenav-content>
+    <app-co-ordinator></app-co-ordinator>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

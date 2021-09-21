@@ -1,0 +1,56 @@
+<div class="container w-50 p-3">
+    <mat-card  class="example-card">
+    
+            <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Track Orders</mat-card-title>
+            </h1>
+        
+        <mat-card-content>
+         <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+            <div class="form-group form-row">
+                <label for="distSelect" class="st-label col-md-3 col-form-label">Distributor:</label>
+                    <select class="form-control col-md-5"  id="distSelect"   formControlName="selectedId" [ngClass]="{'is-invalid':(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid}">
+                      <option value="" disabled>Select Distributor</option>
+                      <option [value]="item" *ngFor="let item of distributorIds">{{item}}</option>
+                    </select>
+                    <span class="invalid-feedback " *ngIf="(f.selectedId.touched && f.selectedId.dirty || submitted) && f.selectedId.invalid">
+                      Order Id is Required!!
+                    </span>  
+             </div>
+             <div class="form-group form-row">
+                <label for="status" class="st-label col-md-3 col-form-label">Status</label>
+                <select class="form-control col-md-5" id="status" formControlName="status" [ngClass]="{'is-invalid':(f.status.touched && f.status.dirty || submitted) && f.status.invalid}" >
+                  <option value="" disabled>Select Status</option>
+                  <option *ngFor="let item of statuses" [value]="item" >{{item}}</option>
+                </select>
+                <span class="invalid-feedback " *ngIf="(f.status.touched && f.status.dirty || submitted) && f.status.invalid">
+                  Order Id is Required!!
+                </span>   
+              </div>
+              <div class=" form-group form-row">     
+                <label class="st-label col-md-3 col-form-label" for="SDate" > Start Date</label>
+                 <input type = "date"  class="form-control col-md-5" id="SDate" formControlName="startDate"  >    
+              </div>
+              <div class=" form-group form-row">     
+                <label class="st-label col-md-3 col-form-label" for="SDate" > End Date</label>
+                 <input type = "date"  class="form-control col-md-5" id="EDate" formControlName="endDate" >    
+              </div>
+             <div class="wrapper">  
+                <button mat-raised-button class="btn btn-primary col-md-3" type="submit">Search</button>
+            </div>
+           
+         </form> 
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="container">  
+  <h1>Order List Details</h1>  
+    
+<table class="table table-condensed ">  
+  <tr><th>O.Id</th><th>D.O.O</th><th>D.O.D</th><th>D.Id</th><th>W.Id</th><th>P.Name</th><th>Quantity</th><th>PPU</th><th>Total</th><th>Status</th></tr> 
+  
+  <tr *ngFor="let item of orders"><td>{{item.orderId}}</td><td>{{item.dateOfOrder}}</td><td>{{item.dateOfDelivery}}</td><td>{{item.distributorId}}</td><td>{{item.warehouseId}}</td><td>{{item.productName}}</td><td>{{item.quantity}}</td><td>{{item.pricePerUnit}}</td><td>{{item.totalPrice}}</td><td>{{item.deliveryStatus}}</td></tr>  
+   
+</table>  
+  
+</div>  
+<div class="container" *ngIf="noRecordsFound">No Records Found</div>

@@ -1,0 +1,52 @@
+<div class="container  w-50  p-3 ">
+  <mat-card  class="example-card">
+  
+          <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"> <mat-card-title>Order Update</mat-card-title>
+          </h1>
+      
+      <mat-card-content>
+       <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class=" form-group form-row">
+              <label class="st-label col-md-3 col-form-label" for="orderId" >Order Id</label>
+               <input type = "number" class="form-control col-md-5" id="orderId"  placeholder = "Order Id"
+                formControlName="orderId" [ngClass]="{'is-invalid':(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid}" >  
+                <span class="invalid-feedback " *ngIf="(f.orderId.touched && f.orderId.dirty || submitted) && f.orderId.invalid">
+                  Order Id is Required!!
+                </span>  
+             </div>
+             
+             <div class="form-group form-row">
+              <label for="status" class="st-label col-md-3 col-form-label">Status</label>
+              <select class="form-control col-md-5" id="status" formControlName="status" [ngClass]="{'is-invalid':(f.status.touched && f.status.dirty || submitted) && f.status.invalid}">
+                <option value="" disabled>Select Status</option>
+                <option *ngFor="let item of statuses" [value]="item" >{{item}}</option>
+              </select>
+              <span class="invalid-feedback " *ngIf="(f.status.touched && f.status.dirty || submitted) && f.status.invalid">
+                Order Id is Required!!
+              </span>   
+            </div>
+           
+           <div class="wrapper">  
+              <button mat-raised-button class="btn btn-primary col-md-3" type="submit">Update</button>
+          </div>
+         
+       </form> 
+      </mat-card-content>
+  </mat-card>
+
+</div>
+
+<div class="container  w-50  p-3" *ngIf="fail">
+  <mat-card  class="fail" >
+    This Order Id Does Not Exist
+  </mat-card>
+</div>
+<div class="container  w-50  p-3" *ngIf="success">
+  <mat-card  class="success" >
+    Order Updated successfully
+  </mat-card>
+</div>
+
+
+
+

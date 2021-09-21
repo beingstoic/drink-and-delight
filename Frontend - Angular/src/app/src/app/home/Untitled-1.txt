@@ -1,0 +1,34 @@
+<div class="alert alert-danger" 
+     *ngIf="industryField.touched && !industryField.valid">
+      The industry is required
+</div>
+
+<div class="alert alert-danger" 
+     *ngIf="nameField.errors.minlength">
+     The company name should be at least {{ nameField.errors.minlength.requiredLength }} characters long
+</div>
+
+<div class="alert alert-danger" 
+     *ngIf="nameField.errors.minlength">
+     The company name should be at least 3 characters long
+</div>
+
+<div class="alert alert-danger" 
+     *ngIf="nameField.errors.required">
+     The company name is required
+</div>
+
+<div *ngIf="nameField.touched && nameField.errors"></div>
+
+@import '~@angular/material/theming';
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);

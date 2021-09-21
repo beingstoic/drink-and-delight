@@ -1,0 +1,36 @@
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <a mat-button routerLink="/viewtrainings">Training Management</a>
+        <br>
+        <button mat-button [matMenuTriggerFor]="menu2">Participant Enrollment</button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item routerLink="/">Add Training</button>
+          <button mat-menu-item routerLink="/">View Trainings</button>
+          <button mat-menu-item routerLink="/">Edit Trainings</button>
+        </mat-menu>
+  
+      <span class="spacer"></span>
+
+      <mat-icon>account_circle</mat-icon>
+    
+      <button mat-button [matMenuTriggerFor]="menu3">Username</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+  
+      <!-- <mat-nav-list *ngIf="!isLoggedIn">
+        <a mat-button routerLink="/register">Register</a>
+        <a mat-button routerLink="/login">Login</a>
+      </mat-nav-list>
+      <mat-nav-list *ngIf="isLoggedIn">
+        <button mat-button [matMenuTriggerFor]="menu">{{username}}</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/profile">View Profile</button>
+            <button mat-menu-item routerLink="/editprofile">Edit Profile</button>
+            <button mat-menu-item routerLink="/resetpass">Reset Password</button>
+          </mat-menu> -->
+        
+      <!-- </mat-nav-list> -->
+      
+    </mat-toolbar-row>
+  </mat-toolbar>

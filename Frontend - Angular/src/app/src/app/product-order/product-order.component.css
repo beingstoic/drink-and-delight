@@ -1,0 +1,42 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+label.st-label
+{
+  font-weight: strong;
+  font-size: medium;
+}
+.mat-card{
+    color:#011f4b;
+    background-color: whitesmoke;
+    border-radius: 7px;
+}
+.mat-card-subtitle
+{
+    color: blue;
+}
+.wrapper {
+    text-align: center;
+  }
+  
+  .btn
+  {
+      background-color: #011f4b;
+      border: #011f4b;
+      
+  }
+  .mat-card.fail{
+    background-color: #d44e4e;
+    color: aliceblue;
+    font-size: medium;
+    text-align: center;
+  }
+  .mat-card.success
+  {
+    background-color: #3eb043;
+    color: aliceblue;
+    font-size: medium;
+    text-align: center;
+  }

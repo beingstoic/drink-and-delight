@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="col-md-5">
+        <form role="form" #f="ngForm" (ngSubmit)="f.form.valid && show(f)">
+            <div class="form-group">
+                <label>Product ID:</label>
+                <input required name="id" [(ngModel)]="prd.productId" #productId="ngModel" type="text"
+                    class="form-control">
+
+                <div class="alert alert-danger" *ngIf="productId.touched && productId.invalid">
+                    <span style="color: red;">Please Enter Product Id.</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input required name="name" [(ngModel)]="prd.productName" #productName="ngModel" type="text"
+                    class="form-control">
+
+                <div class="alert alert-danger" *ngIf="productName.touched && productName.invalid">
+                    <span style="color: red;">Please Enter Product Name.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Product Cost:</label>
+                <input required name="cost" [(ngModel)]="prd.productCost" #productCost="ngModel" type="text"
+                    class="form-control">
+
+                <div class="alert alert-danger" *ngIf="productCost.touched && productCost.invalid">
+                    <span style="color: red;">Please Enter Product Cost.</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <div>
+                    <label>Product Online:</label>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    <input required name="online" [(ngModel)]="prd.productOnline" #productOnline="ngModel" type="radio"
+                        value="Yes">Yes
+                    &nbsp; &nbsp; &nbsp; &nbsp; <input required name="online" [(ngModel)]="prd.productOnline"
+                        #productOnline="ngModel" type="radio" value="No">No
+                </div>
+
+                <div class="alert alert-danger" *ngIf="productOnline.touched && productOnline.invalid">
+                    <span style="color: red;">Product Online required.</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label>Product Category:</label>
+                <select required name="category" [(ngModel)]="prd.productCategory" #productCategory="ngModel"
+                    class="form-control">
+
+                    <option *ngFor="let item of  productCategoryArray" [value]="item">
+                        {{item}}
+                    </option>
+
+                </select>
+
+                <div class="alert alert-danger" *ngIf="productCategory.touched && productCategory.invalid">
+                    <span style="color: red;">Please select product Category.</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <div>
+                    <label>Available in Store:</label>&nbsp; &nbsp; &nbsp; &nbsp;
+
+
+                    <ng-container *ngFor="let data of checkBoxArray; let i=index">
+                        &nbsp; &nbsp;
+                        <input required type="checkbox" name="available" [(ngModel)]="data.selected"
+                            [value]="data.value" #productStore="ngModel" (change)="onCheckboxChange($event,data);">
+                        {{data.name}}&nbsp; &nbsp; &nbsp;&nbsp;
+
+                       <!-- <div class="alert alert-danger" *ngIf="productStore.touched && productStore.invalid">
+                            <span style="color: red;">Please select product Category.</span>
+                        </div>-->
+                    </ng-container>
+
+
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Add Product" class="btn btn-primary">
+            </div>
+        </form>
+
+
+
+    </div>
+</div>

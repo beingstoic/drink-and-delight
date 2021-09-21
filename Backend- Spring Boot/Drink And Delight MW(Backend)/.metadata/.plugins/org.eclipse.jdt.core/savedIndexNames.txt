@@ -1,0 +1,24 @@
+INDEX VERSION 1.131+F:\Drink And Delight MW(Backend)\.metadata\.plugins\org.eclipse.jdt.core
+4167196667.index
+874798761.index
+991735649.index
+2270713507.index
+946816139.index
+154668941.index
+1378015560.index
+402791964.index
+2922245217.index
+1813629702.index
+473591088.index
+1644613161.index
+2092250086.index
+2245724659.index
+1297225286.index
+3445611512.index
+4123756625.index
+2070698856.index
+3862868720.index
+4159925062.index
+1330774489.index
+4289802199.index
+1481432206.index

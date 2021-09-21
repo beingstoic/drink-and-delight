@@ -1,0 +1,73 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="UpRmStock">Update Raw Material Stock</div>
+
+    </div>
+
+        <div class="btn">       
+        <button class="btn btn-primary" (click)="ProcessDate()" >
+           Set Process Date
+        </button>
+        </div>
+       
+        <div class="btn">
+        <button class="btn btn-primary" (click)="RmDetails()" >
+            Update Raw Material Details
+        </button>
+        </div>
+
+
+        <div class="form-group" *ngIf="UpProcessDate" >
+            <label class="SearchID">Enter Raw Material ID</label>
+            <input type="number" name="orderId" [(ngModel)]="orderId" class="form-control">
+            <p>Look at me! {{orderId}}</p>
+            <button class="btn btn-success" type="submit" (click)="findById()" >Search</button>
+
+            <!-- <button mat-raised-button color="primary" type="submit" (click)="findById()">Search</button> -->
+            <!-- <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Data Not Found</div> -->
+
+        </div>
+        <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Raw Material Id Not Found</div>
+
+
+        <div class="form-group" *ngIf="IdExist && dataFound">
+            <label class="pDate">Set Process Date</label>
+            <input type="date" name="processDate" [(ngModel)]="model.processDate" class="form-control">
+            <!-- <input type="text" name="PrDate" [(ngModel)]="PrDate" class="form-control"> -->
+            <p>Look at me! {{model.processDate}}</p>
+            <button class="btn btn-success" type="submit" (click)="setPrDate()" >Set</button>
+
+
+        </div>
+        <div class="alert alert-info" *ngIf="DateUpdated && success">Process Date Updated {{resultModel}}</div>
+        <!-- <div class="alert alert-info" *ngIf="DateUpdated && success">Process Date Updated Successfully...</div> -->
+
+        <div class="form-group" *ngIf="UpRmDetails" >
+            <label class="SearchID">Enter Raw Material ID</label>
+            <input type="number" name="orderId" [(ngModel)]="model.orderId" class="form-control">
+            <p>Look at me! {{orderId}}</p>
+            <!-- <button class="btn btn-success" type="submit" >Search</button> -->
+            <!-- <button mat-raised-button color="primary" type="submit" (click)="findById()">Search</button> -->
+            <!-- <div class="alert alert-danger" *ngIf="submitted && dataNotFound">Data Not Found</div> -->
+
+
+
+        <!-- </div> -->
+        <!-- <div class="form-group" *ngIf="IdExist1"> -->
+            <label class="mDate">Set Manufacturing Date</label>
+            <input type="date" name="manufacturingDate" [(ngModel)]="model.manufacturingDate" class="form-control">
+            <!-- <input type="text" name="MfDate" [(ngModel)]="MfDate" class="form-control"> -->
+            <p>Look at me! {{model.manufacturingDate}}</p>
+            <label class="eDate">Set Expiry Date</label>
+            <input type="date" name="expiryDate" [(ngModel)]="model.expiryDate" class="form-control">
+            <!-- <input type="text" name="ExpDate" [(ngModel)]="ExpDate" class="form-control"> -->
+            <p>Look at me! {{model.expiryDate}}</p>
+            <label class="qAna">Set Quality Analysis</label>
+            <input type="text" name="qualityCheck" [(ngModel)]="model.qualityCheck" class="form-control">
+            <p>Look at me! {{model.qualityCheck}}</p>
+            <button class="btn btn-success" type="submit" (click)="submitRmDetails()" >Submit</button>
+        </div>
+        <div class="alert alert-info" *ngIf="detailSubmitButton && success">Data submitted {{resultModel}}</div>
+        <!-- <div class="alert alert-info" *ngIf="detailSubmitButton && success">Raw Material Details Updated Successfully...</div> -->
+</div>

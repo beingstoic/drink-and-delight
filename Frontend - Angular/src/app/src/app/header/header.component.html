@@ -1,0 +1,64 @@
+<!-- Toolbar -->
+<div class="toolbar" *ngIf="isLoggedIn" >
+    <img
+      width="40"
+      alt="Drink And Delight Logo"
+      src="assets/images/champagne.png"
+    />
+    <span>Drink And Delight</span>
+    <div class="spacer"></div>
+    
+
+    <button mat-button [matMenuTriggerFor]="product">Product
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+
+    <mat-menu #product="matMenu">
+      <button mat-menu-item routerLink="Porder">Add Order</button>
+      <button mat-menu-item routerLink="Oupdate">Update Order</button>
+      <button mat-menu-item routerLink="Torder">Track Orders</button>
+      <button mat-menu-item routerLink="Odetail">Order Details</button>
+      <button mat-menu-item routerLink="dist">Distributor Details</button>
+     
+    </mat-menu>
+   
+    
+    
+  <button mat-button [matMenuTriggerFor]="rawMaterialMenu">Raw Material
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #rawMaterialMenu="matMenu">
+    <button mat-menu-item routerLink="rOrder">Add Order</button>
+    <button mat-menu-item routerLink="rmupdate">Update Order</button>
+    <button mat-menu-item routerLink="rmtrack">Track Orders</button>
+    <button mat-menu-item routerLink="rmdetails">Order Details</button>
+    <button mat-menu-item routerLink="sup">Supplier Details</button>
+  </mat-menu>
+
+
+  
+  <button mat-button [matMenuTriggerFor]="stock">Stock
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+
+  <mat-menu #stock="matMenu">
+    <button mat-menu-item routerLink="updateRM">Update Raw Material Stock</button>
+    <button mat-menu-item routerLink="updatePr">Update Product Stock</button>
+    <button mat-menu-item routerLink="trackRmD">Track Raw Material Details</button>
+    <button mat-menu-item routerLink="trackPrD">Track Product Details</button>
+  </mat-menu>
+   
+  <button mat-button (click)="logout()">Logout
+      <mat-icon>account_circle</mat-icon>
+   </button>
+
+</div>  
+<!-- 
+  </div>
+  <br><br><br><br>
+  <mat-toolbar  color="primary">
+    <span>Material Design Rocks!</span><span>Material Design Rocks!</span>
+    <mat-card></mat-card>
+  </mat-toolbar>
+-->

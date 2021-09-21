@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+F:\Drink And Delight MW(Backend)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2970317309.index
+4289802199.index
+3208887006.index
+3975401488.index
+1767122605.index
+2362857582.index

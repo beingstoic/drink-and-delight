@@ -1,0 +1,89 @@
+
+<div class="container w-50  p-3  " id="form1"  >
+  <mat-card  class="example-card">
+  <h1 class=" h4 mb-4 block-title text-weight-bold text-uppercase text-center"><mat-card-title> Place Raw Material Order</mat-card-title></h1>
+  <mat-card-content>
+<form class=""[formGroup]="rawMaterialOrderForm" (ngSubmit)="onSubmit()">
+
+  <div class=" form-group form-row ">     
+    <label class="st-label col-md-3 col-form-label" for="orderDate" >Date Of Order</label>
+     <input type = "date" class="form-control col-md-5"  id="orderDate" placeholder = "Order Date" formControlName="dateOfOrder" readonly >
+         
+  </div>
+  
+  <div class=" form-group form-row">
+   <label class="st-label col-md-3 col-form-label" for="orderId" >Order Id</label>
+    <input type = "number" class="form-control col-md-5" id="orderId" class="form-control col-md-5" [class.is-invalid]="rawMaterialOrderForm.get('orderId').invalid && rawMaterialOrderForm.get('orderId').touched" placeholder = "Order Id" formControlName="orderId" >     
+    <div *ngIf="rawMaterialOrderForm.get('orderId').invalid && rawMaterialOrderForm.get('orderId').touched">
+    <small *ngIf="rawMaterialOrderForm.get('orderId').errors?.required" class="text-danger">Username is required</small>
+    <small *ngIf="rawMaterialOrderForm.get('orderId').errors?.minlength" class="text-danger">OrderId should be of minimum 3 Characters</small>
+    </div>
+  </div>
+  
+  
+
+ <div class="form-group form-row">
+    <label for="exampleSelect2" class="st-label col-md-3 col-form-label">Supplier:</label>
+        <select class="form-control col-md-5" id="exampleSelect2" formControlName="supplierId">
+          <option value="" disabled>Select Supplier</option>
+          <option [value]="item.supplierId" *ngFor="let item of suppliers">{{item.supplierId}}-{{item.supplierName}}</option>
+        </select>  
+ </div>
+
+  <div class="form-group form-row">
+    <label for="exampleSelect1" class="st-label col-md-3 col-form-label">Raw Material Name:</label>
+    <select class="form-control col-md-5" id="exampleSelect1" formControlName="rawMaterialName" >
+      <option value="" disabled>Raw Material Name</option>
+      <option *ngFor="let item of rawMaterials" >{{item.materialName}}</option>
+    </select>  
+  </div>
+ 
+
+  <div class=" form-group form-row">    
+    <label class="st-label col-md-3 col-form-label" for="ppu" >Price Per Unit</label>
+    <input type = "number" class="form-control col-md-5" id="ppu" [class.is-invalid]="rawMaterialOrderForm.get('pricePerUnit').invalid && rawMaterialOrderForm.get('pricePerUnit').touched" placeholder = "Unit Price" formControlName="pricePerUnit" >    
+    <small class="text-danger" [class.d-none]="rawMaterialOrderForm.get('pricePerUnit').valid || rawMaterialOrderForm.get('pricePerUnit').untouched" >Price per unit is required</small>
+  </div>
+
+  <div class=" form-group form-row">   
+      <label class="st-label col-md-3 col-form-label" for="quantity" >Quantity Value:</label>
+      <input type = "number"  class="form-control col-md-5" [class.is-invalid]="rawMaterialOrderForm.get('quantityValue').invalid && rawMaterialOrderForm.get('quantityValue').touched" id="quantity" placeholder = "Quantity" formControlName="quantityValue" #r (input)="updateBillAmount()" >
+      <small [class.d-none]="rawMaterialOrderForm.get('quantityValue').valid || rawMaterialOrderForm.get('quantityValue').untouched" class="text-danger">Quantity value is required</small>
+  </div>
+
+  <div class=" form-group form-row">
+    <label class="st-label col-md-3 col-form-label" for="orderId" >Quantity Unit</label>
+     <input type = "number" class="form-control col-md-5" id="quantityUnit" class="form-control col-md-5" [class.is-invalid]="rawMaterialOrderForm.get('quantityUnit').invalid && rawMaterialOrderForm.get('quantityUnit').touched" placeholder = "Quantity Unit" formControlName="quantityUnit" >     
+     <div *ngIf="rawMaterialOrderForm.get('quantityUnit').invalid && rawMaterialOrderForm.get('quantityUnit').touched">
+     <small *ngIf="rawMaterialOrderForm.get('quantityUnit').errors?.required" class="text-danger">Quantity Value is required</small>
+     <small *ngIf="rawMaterialOrderForm.get('quantityUnit').errors?.minlength" class="text-danger">Value should be of minimum 3 Characters</small>
+     </div>
+   </div>
+  
+  <div class="form-group form-row">
+    <label for="exampleSelect3" class="st-label col-md-3 col-form-label">Warehouse</label>
+    <select class="form-control col-md-5" id="exampleSelect3"       formControlName="warehouseId">
+      <option value="" disabled > Select Warehouse</option>
+      <option *ngFor="let item of warehouses" [value]="item.warehouseId">{{item.warehouseName}}</option>
+    </select>  
+  </div>
+
+  <div class=" form-group form-row">     
+    <label class="st-label col-md-3 col-form-label" for="totalPrice" >Bill Amount</label>
+     <input type = "number" class="form-control col-md-5" id="totalPrice" placeholder = "Bill Amount" formControlName="totalPrice" >    
+  </div>
+
+
+  
+  <div class=" form-group form-row">     
+    <label class="st-label col-md-3 col-form-label" for="deliveryDate" > Delivery Date</label>
+     <input type = "date" #dod class="form-control col-md-5" id="deliveryDate" placeholder = "Delivery Date" formControlName="dateOfDelivery" (input)="checkDate(dod.value)" >    
+  </div>
+  <div class="wrapper">
+  <input type = "submit" value = "Send" class="btn btn-primary col-md-3 waves-effect " [disabled]="!rawMaterialOrderForm.valid">  
+  </div>
+  
+     </form>
+    </mat-card-content>
+  </mat-card>
+</div>

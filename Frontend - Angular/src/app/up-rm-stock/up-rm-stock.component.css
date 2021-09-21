@@ -1,0 +1,23 @@
+/* .container {
+    margin-top: 60px;
+} */
+
+
+.UpRmStock {
+    font-size: 60px;
+    font-style: italic;
+    font-family: sans-serif;
+  }
+
+.SearchID {
+    font-size: 30px;
+}
+
+.form-group {
+    font-size: 20px;
+    height: auto;
+    width: 35%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+

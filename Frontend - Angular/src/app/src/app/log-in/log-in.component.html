@@ -1,0 +1,57 @@
+<div class="toolbar"  >
+    <img
+      width="40"
+      alt="Drink And Delight Logo"
+      src="assets/images/champagne.png"
+    />
+    <span>Drink And Delight</span>
+    <div class="spacer"></div>
+    
+</div>  
+
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <form fxLayoutAlign="stretch " fxLayout="column" [formGroup]="userValidations" (ngSubmit)="clickLogin()">
+
+            <img class="logo " class="img " width="40" style="margin-left: auto; margin-right: auto;" src="assets/images/champagne.png"><br>
+            <h1 style="text-align:center; ">
+                <b>LOG IN HERE </b>
+            </h1>
+            
+            <div class="form-group form-row">
+                <input type = "text" autocomplete="off" class="form-control " id="username" name="username"  placeholder = "Username "
+                formControlName="username" [ngClass]="{'is-invalid':(f.username.touched && f.username.dirty)&&userValidations.get( 'username').invalid}"> 
+                <span class="invalid-feedback " *ngIf="(f.username.touched && f.username.dirty)&&f.username.hasError( 'required') ">
+                    Username is Required!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.username.touched && f.username.dirty)&&f.username.hasError( 'minlength') ">
+                    Username should be atleast 8 characters long!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.username.touched && f.username.dirty)&&f.username.hasError( 'maxlength')">
+                    Username can be at max 20 characters long!
+                </span>
+              
+            </div>
+            
+           
+            <div class="form-group form-row">
+
+                <input type = "password" class="form-control " id="password" name="password"  placeholder = "Password "
+                formControlName="password" [ngClass]="{'is-invalid':(f.password.touched && f.password.dirty)&& f.password.invalid}"> 
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'required') ">
+                    Password is required!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'minlength') ">
+                    Password should be atleast 6 characters long!
+                </span>
+                <span class="invalid-feedback " *ngIf="(f.password.touched && f.password.dirty)&&f.password.hasError( 'maxlength')">
+                    Password can be at max 16 characters long!
+                </span>
+
+            </div>
+            <button mat-raised-button class="btn btn-primary"  type="submit">LOG IN</button><br>
+           <!-- <button mat-raised-button  class="btn btn-primary" color="info" type="button" (click)="forgotPassword()">Forgot Password?</button><br>-->
+            <button mat-raised-button class="btn btn-primary" color="info" type="button" (click)="clickSignup()">New to Drink & Delight?</button> <br>
+        </form>
+    </mat-card>
+</div>

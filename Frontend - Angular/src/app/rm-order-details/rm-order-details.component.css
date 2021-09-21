@@ -1,0 +1,49 @@
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.trackRM {
+  font-size: 60px;
+  font-style: italic;
+  font-family: sans-serif;
+}
+label.st-label
+{
+  font-weight: strong;
+  font-size: medium;
+}
+.mat-card{
+    color:#011f4b;
+    background-color: whitesmoke;
+    border-radius: 7px;
+}
+.mat-card-subtitle
+{
+    color: blue;
+}
+.wrapper {
+    text-align: center;
+  }
+  
+  .btn
+  {
+      background-color: #011f4b;
+      border: #011f4b;
+      
+  }
+
+  .form-grp {
+    font-size: 20px;
+    height: auto;
+    width: 35%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.mat-card.fail{
+  background-color: #d44e4e;
+  color: aliceblue;
+  font-size: medium;
+  text-align: center;
+}
